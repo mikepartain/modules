@@ -1,9 +1,13 @@
 from modules import *
 # host = ('../configs/tlas-mgt')
-host = ('../configs/tlaw-bggw')
+# host = ('../configs/tlaw-bggw')
 # host = ('../configs/tlaw-acr')
 # host = ('../configs/APCG-M1A')
-print get_hostname(host)
+
+
+for device in os.listdir('../configs/'):
+    host = '../configs/'+device
+    #print get_hostname(host)
 
 # print 'LOOPBACKS: '.ljust(20),get_loopback(host)
 # print 'IP INT: '.ljust(20),get_int_ip(host)
@@ -16,14 +20,12 @@ print get_hostname(host)
 # print 'OSPF PASSIVE: '.ljust(20),get_ospf_passive_default(host)
 # print 'EIGRP PASSIVE: '.ljust(20),get_eigrp_passive_default(host)
 # print host, device_type(host)
+    if get_eigrp_process(host):
+        print '%s has EIGRP enabled.' % (get_hostname(host))
 
-# for device in os.listdir('../configs/'):
-#     host = '../configs/'+device
-#     # print device, host
-#     print device, device_type(host)
 
-for int, acl in get_interface_acls(host):
-    print int+','+ acl
+    # for int, acl in get_interface_acls(host):
+    #     print int+','+ acl
 
 
 # print get_interface_acls(host)
