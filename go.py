@@ -1,8 +1,5 @@
 from modules import *
-# host = ('../configs/tlas-mgt')
-host = ('../configs/tlaw-bggw')
-# host = ('../configs/tlaw-acr')
-# host = ('../configs/APCG-M1A')
+host = ('../configs/r2')
 print get_hostname(host)
 
 # print 'LOOPBACKS: '.ljust(20),get_loopback(host)
